@@ -16,6 +16,8 @@ class SolverTest extends TestCase
 
         $this->assertEquals(15, $solver->solvePartOne($input));
         $this->assertEquals(12, $solver->solvePartTwo($input));
+
+        $this->assertEquals(12, $solver->solveRotationPartTwo($input));
     }
 
     public function test_it_submits_correct_answer(): void

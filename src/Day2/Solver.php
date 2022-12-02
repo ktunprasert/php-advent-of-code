@@ -48,6 +48,35 @@ class Solver
         return $score;
     }
 
+    public function solveRotationPartTwo(string $input): int
+    {
+        $choices = ['A', 'B', 'C'];
+        $score = 0;
+
+        $rotation = [
+            'Y' => 0,
+            'X' => 2,
+            'Z' => 1,
+        ];
+
+        $idxByChoice = [
+            'A' => 0,
+            'B' => 1,
+            'C' => 2,
+        ];
+
+        foreach (explode("\n", $input) as $line) {
+            if ($line) {
+                [$choice, $r] = explode(' ', $line);
+                $rIdx = ($idxByChoice[$choice] + $rotation[$r]) % 3;
+                $score += $this->getChoiceScore($choices[$rIdx]);
+                $score += $this->getResultScore($choice, $choices[$rIdx]);
+            }
+        }
+
+        return $score;
+    }
+
     private function getChoiceByOutcomeScore(string $elf, int $score): string
     {
         return match ($elf) {
@@ -72,17 +101,17 @@ class Solver
     private function getResultScore(string $elf, string $you): int
     {
         return match ($you) {
-            'X' => match ($elf) {
+            'X', 'A' => match ($elf) {
                 'A' => 3,
                 'B' => 0,
                 'C' => 6,
             },
-            'Y' => match ($elf) {
+            'Y', 'B' => match ($elf) {
                 'A' => 6,
                 'B' => 3,
                 'C' => 0,
             },
-            'Z' => match ($elf) {
+            'Z', 'C' => match ($elf) {
                 'A' => 0,
                 'B' => 6,
                 'C' => 3,
