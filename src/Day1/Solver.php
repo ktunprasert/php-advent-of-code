@@ -11,7 +11,7 @@ class Solver
         $previousElf = 0;
         $elf = 0;
 
-        foreach (explode("\n", $input) as $line) {
+        foreach (explode("\r\n", $input) as $line) {
             if ($line) {
                 $elf += (int) $line;
             } else {
@@ -31,7 +31,7 @@ class Solver
         $previousElves = [];
         $elf = 0;
 
-        foreach (explode("\n", $input) as $line) {
+        foreach (explode("\r\n", $input) as $line) {
             if ($line) {
                 $elf += (int) $line;
             } else {
@@ -65,7 +65,7 @@ class Solver
     {
         $maxHeap = new SplMaxHeap();
         $elf = 0;
-        foreach (explode("\n", $input) as $line) {
+        foreach (explode("\r\n", $input) as $line) {
             if ($line) {
                 $elf += (int) $line;
             } else {
