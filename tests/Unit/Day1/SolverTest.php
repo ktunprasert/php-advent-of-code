@@ -37,7 +37,7 @@ str;
 
     public function test_it_submits_correct_answer(): void
     {
-        // $this->markTestSkipped('Day 1 tests already submitted skipped to not spam the server');
+        $this->markTestSkipped('Day 1 tests already submitted skipped to not spam the server');
 
         $client = new AdventClient(2022, 1);
         $inputRes = $client->getInput();
