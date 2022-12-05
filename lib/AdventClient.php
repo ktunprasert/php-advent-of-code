@@ -36,17 +36,17 @@ class AdventClient
         return str_contains((string)$res->getBody(), "calendar-day$this->day calendar-verycomplete");
     }
 
-    public function submitPartOne(int $answer): Response
+    public function submitPartOne(mixed $answer): Response
     {
         return $this->submitAnswer(1, $answer);
     }
 
-    public function submitPartTwo(int $answer): Response
+    public function submitPartTwo(mixed $answer): Response
     {
         return $this->submitAnswer(2, $answer);
     }
 
-    private function submitAnswer(int $part, int $answer): Response
+    private function submitAnswer(int $part, mixed $answer): Response
     {
         return $this->client->request('POST', "https://adventofcode.com/$this->year/day/$this->day/answer", [
             'form_params' => [
