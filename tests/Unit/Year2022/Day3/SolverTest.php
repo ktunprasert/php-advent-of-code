@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit\Day5;
+namespace Tests\Unit\Day3;
 
-use App\Day5\Solver;
+use App\Year2022\Day3\Solver;
 use PHPUnit\Framework\TestCase;
 use Lib\AdventClient;
 
@@ -10,19 +10,19 @@ class SolverTest extends TestCase
 {
     public function test_it_pass_example_test(): void
     {
-        $input = "    [D]    \n[N] [C]    \n[Z] [M] [P]\n 1   2   3 \n\n\nmove 1 from 2 to 1\nmove 3 from 1 to 3\nmove 2 from 2 to 1\nmove 1 from 1 to 2";
+        $input = "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw";
 
         $solver = new Solver();
 
-        $this->assertEquals('CMZ', $solver->solvePartOne($input));
-        $this->assertEquals('MCD', $solver->solvePartTwo($input));
+        $this->assertEquals(157, $solver->solvePartOne($input));
+        $this->assertEquals(70, $solver->solvePartTwo($input));
     }
 
     public function test_it_submits_correct_answer(): void
     {
-        $this->markTestSkipped('Day 5 tests already submitted skipped to not spam the server');
+        $this->markTestSkipped('Day 3 tests already submitted skipped to not spam the server');
 
-        $client = new AdventClient(2022, 5);
+        $client = new AdventClient(2022, 3);
         $inputRes = $client->getInput();
         $solver = new Solver();
 

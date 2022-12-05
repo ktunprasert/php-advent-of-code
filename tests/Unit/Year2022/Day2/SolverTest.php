@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Day2;
 
-use App\Day2\Solver;
+use App\Year2022\Day2\Solver;
 use PHPUnit\Framework\TestCase;
 use Lib\AdventClient;
 

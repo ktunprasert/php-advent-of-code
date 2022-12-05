@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Day1;
+namespace App\Year2022\Day1;
 
 use SplMaxHeap;
+use App\SolverInterface;
 
-class Solver
+class Solver implements SolverInterface
 {
     public function solvePartOne(string $input): int
     {

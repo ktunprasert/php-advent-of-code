@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Day4;
+namespace App\Year2022\Day4;
 
-class Solver
+use App\SolverInterface;
+
+class Solver implements SolverInterface
 {
     public function solvePartOne(string $input): int
     {
