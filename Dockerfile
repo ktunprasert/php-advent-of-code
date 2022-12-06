@@ -9,4 +9,4 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-CMD ["vendor/bin/phpunit"]
+CMD ["tail", "-f", "/dev/null"]
