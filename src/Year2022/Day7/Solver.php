@@ -62,20 +62,14 @@ class Solver implements SolverInterface
                     $i++;
                     break;
                 case 'ls':
-                    $j = $i + 1;
-                    $lsOut = [];
-                    while ((isset($logs[$j])) && ($logs[$j] !== '') && ($logs[$j][0] !== '$')) {
-                        $lsOut[] = $logs[$j];
-                        $j++;
-                    }
-                    $i = $j;
-
+                    $i++;
                     $size = 0;
-                    foreach ($lsOut as $ls) {
-                        $vars = explode(" ", $ls);
+                    while ((isset($logs[$i])) && ($logs[$i] !== '') && ($logs[$i][0] !== '$')) {
+                        $vars = explode(" ", $logs[$i]);
                         if ($vars[0] !== 'dir') {
                             $size += (int) $vars[0];
                         }
+                        $i++;
                     }
 
                     $wd = $cwd;
@@ -84,8 +78,7 @@ class Solver implements SolverInterface
                         $wd = $this->navigateUp($wd);
                     } while ($wd !== $root);
 
-                    if ($cwd === '/') break;
-                    $dirs[$wd] += $size;
+                    if ($cwd !== '/') $dirs[$wd] += $size;
                     break;
             }
         }
