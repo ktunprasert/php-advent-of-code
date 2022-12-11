@@ -12,7 +12,7 @@ $ docker-compose exec app php run.php 2022 1
 ## Running tests
 
 ```bash
-$ docker-compose exec vendor/bin/phpunit
+$ docker-compose exec app vendor/bin/phpunit
 ```
 
 ## Getting solutions
