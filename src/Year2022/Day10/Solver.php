@@ -8,7 +8,7 @@ class Solver implements SolverInterface
 {
     private bool $inputParsed = false;
     private int $partOne = 0;
-    private string $partTwo = 0;
+    private string $partTwo = "";
 
     public function solvePartOne(string $input): int
     {
