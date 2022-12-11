@@ -22,6 +22,7 @@
         "symfony/var-dumper": "^6.2"
     },
     "require": {
-        "guzzlehttp/guzzle": "^7.5"
+        "guzzlehttp/guzzle": "^7.5",
+        "php-ds/php-ds": "^1.4"
     }
 }
