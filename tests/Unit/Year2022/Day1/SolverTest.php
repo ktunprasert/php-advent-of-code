@@ -10,22 +10,7 @@ class SolverTest extends TestCase
 {
     public function test_it_pass_example_test(): void
     {
-        $input = <<<str
-1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000
-str;
+        $input = "1000\n2000\n3000\n\n4000\n\n5000\n6000\n\n7000\n8000\n9000\n\n10000\n";
 
         $solver = new Solver();
         $this->assertEquals(24000, $solver->solvePartOne($input));

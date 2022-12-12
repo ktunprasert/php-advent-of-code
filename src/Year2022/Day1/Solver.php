@@ -12,7 +12,7 @@ class Solver implements SolverInterface
         $previousElf = 0;
         $elf = 0;
 
-        foreach (explode("\r\n", $input) as $line) {
+        foreach (explode("\n", $input) as $line) {
             if ($line) {
                 $elf += (int) $line;
             } else {
@@ -32,7 +32,7 @@ class Solver implements SolverInterface
         $previousElves = [];
         $elf = 0;
 
-        foreach (explode("\r\n", $input) as $line) {
+        foreach (explode("\n", $input) as $line) {
             if ($line) {
                 $elf += (int) $line;
             } else {
@@ -66,7 +66,7 @@ class Solver implements SolverInterface
     {
         $maxHeap = new SplMaxHeap();
         $elf = 0;
-        foreach (explode("\r\n", $input) as $line) {
+        foreach (explode("\n", $input) as $line) {
             if ($line) {
                 $elf += (int) $line;
             } else {
