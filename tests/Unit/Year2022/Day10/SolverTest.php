@@ -3,7 +3,7 @@
 namespace Tests\Unit\Day10;
 
 use App\Year2022\Day10\Solver;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Lib\AdventClient;
 
 class SolverTest extends TestCase
@@ -17,21 +17,10 @@ class SolverTest extends TestCase
 
     public function test_it_submits_correct_answer(): void
     {
-        $this->markTestSkipped('Day 10 tests already submitted skipped to not spam the server');
-
-        $client = new AdventClient(2022, 10);
-        $inputRes = $client->getInput();
-        $solver = new Solver();
-
-        if ($inputRes->getStatusCode() === 200) {
-            $input = (string) $inputRes->getBody();
-
-            if (!$client->submittedPartOne()) {
-                $partOneRes = $client->submitPartOne($solver->solvePartOne($input));
-                $this->assertStringNotContainsStringIgnoringCase('not the right answer', (string) $partOneRes->getBody());
-            }
-
-            // for part 2, you need to human read the input, print out part 2 solution
-        }
+        $this->submitAnswersFromClient(
+            new AdventClient(2022, 11),
+            new Solver(),
+            skipPartTwo: true,
+        );
     }
 }
