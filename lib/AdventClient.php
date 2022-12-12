@@ -82,7 +82,14 @@ class AdventClient
         $crawler = new Crawler($body);
         $calendar = array_fill_keys(range(1, 25), 0);
         foreach ($crawler->filter('.calendar > a')->extract(['class']) as $availableDays) {
-            [$dayText, $dayStatus] = explode(' ', $availableDays);
+            $dayClasses = explode(' ', $availableDays);
+            $dayText = $dayClasses[0];
+            $dayStatus = "";
+
+            if (str_contains($availableDays, ' ')) {
+                $dayStatus = $dayClasses[1];
+            }
+
             $day = abs(filter_var($dayText, FILTER_SANITIZE_NUMBER_INT));
 
             $calendar[$day] = match ($dayStatus) {
