@@ -38,7 +38,6 @@ class Solver implements SolverInterface
                 gettype($a) === 'integer' &&
                 gettype($b) === 'integer'
             ) {
-                $cmp = $a <=> $b;
                 return $a <=> $b;
             }
 
@@ -58,7 +57,6 @@ class Solver implements SolverInterface
         };
 
         foreach (explode("\n\n", $input) as $chunk) {
-            dump($chunk);
             [$leftChunk, $rightChunk] = explode("\n", $chunk);
 
             /** @var array $leftPackets */
