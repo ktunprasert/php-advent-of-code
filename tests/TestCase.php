@@ -34,6 +34,6 @@ class TestCase extends BaseTestCase
                 break;
         }
 
-        $this->assertTrue($client->solved());
+        $this->assertGreaterThan(1, $client->getDateStars());
     }
 }
