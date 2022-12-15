@@ -33,7 +33,5 @@ class TestCase extends BaseTestCase
                 $this->assertStringNotContainsStringIgnoringCase('not the right answer', (string) $partTwoRes->getBody());
                 break;
         }
-
-        $this->assertGreaterThan(1, $client->getDateStars());
     }
 }
