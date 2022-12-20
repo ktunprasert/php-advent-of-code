@@ -62,6 +62,11 @@ class AdventClient
         return $this->submitAnswer(2, $answer);
     }
 
+    public function refreshSubmissionStatus(): void
+    {
+        $this->buildCurrentYearSubmissionStatus(true);
+    }
+
     private function submitAnswer(int $part, mixed $answer): Response
     {
         return $this->client->request('POST', "https://adventofcode.com/$this->year/day/$this->day/answer", [
@@ -72,9 +77,9 @@ class AdventClient
         ]);
     }
 
-    private function buildCurrentYearSubmissionStatus(): void
+    private function buildCurrentYearSubmissionStatus(bool $refresh = false): void
     {
-        if (isset(static::$submissionStatus[$this->year])) return;
+        if ($refresh || isset(static::$submissionStatus[$this->year])) return;
 
         $res = $this->client->request('GET', "https://adventofcode.com/$this->year");
         $body = (string) $res->getBody();
@@ -86,7 +91,7 @@ class AdventClient
             $dayText = $dayClasses[0];
             $dayStatus = "";
 
-            if (str_contains($availableDays, ' ')) {
+            if (count($dayClasses) > 1) {
                 $dayStatus = $dayClasses[1];
             }
 
